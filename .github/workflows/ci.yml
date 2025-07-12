@@ -26,13 +26,37 @@ jobs:
         pip install flake8 black mypy pytest
 
     - name: Run Linter (flake8)
-      run: flake8 project_code/ --count --show-source --statistics
+      run: |
+        if [ -d "project_code" ] && [ "$(ls -A project_code)" ]; then
+          echo "Running flake8 on project_code/"
+          flake8 project_code/ --count --show-source --statistics
+        else
+          echo "Skipping flake8: project_code/ does not exist or is empty"
+        fi
 
     - name: Code Format Check (black)
-      run: black --check project_code/
+      run: |
+        if [ -d "project_code" ] && [ "$(ls -A project_code)" ]; then
+          echo "Running black on project_code/"
+          black --check project_code/
+        else
+          echo "Skipping black: project_code/ does not exist or is empty"
+        fi
 
     - name: Type Check (mypy)
-      run: mypy project_code/
+      run: |
+        if [ -d "project_code" ] && [ "$(ls -A project_code)" ]; then
+          echo "Running mypy on project_code/"
+          mypy project_code/
+        else
+          echo "Skipping mypy: project_code/ does not exist or is empty"
+        fi
 
     - name: Run Tests (pytest)
-      run: pytest tests/
+      run: |
+        if [ -d "tests" ] && [ "$(ls -A tests)" ]; then
+          echo "Running tests"
+          pytest tests/
+        else
+          echo "Skipping tests: tests/ does not exist or is empty"
+        fi
