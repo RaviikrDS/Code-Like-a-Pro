@@ -86,6 +86,39 @@ Each project is designed to be:
 - Modular and extensible
 - Focused on industry best practices
 
+## Folder Structure
+
+Code-Like-a-Pro/
+├── .github/
+│   └── workflows/
+│       └── ci.yml                # GitHub Actions: lint + test + type check
+│
+├── config/                       # Optional: Config files (env, logging, etc.)
+│   ├── logging_config.py         # Centralized logging setup
+│   └── mypy.ini                  # Static typing config
+│
+├── coding_verse/                 # All topics available in this folder.          
+|
+├── tests/                        # All your pytest test cases
+│   ├── __init__.py
+│   └── test_sample.py
+|
+├── examples/                    # Mini projects examples
+│   ├── logging_demo/
+│   └── error_handling_demo/
+|
+├── logs/                        # Log files (ignored via .gitignore)
+│   └── app.log
+|
+├── .gitignore                   # Ignore system files, bytecode, venv, logs, etc.
+├── .dockerignore                # Optional: Docker ignore
+├── .flake8                      # Optional: flake8 config
+├── .pre-commit-config.yaml      # Optional: pre-commit hooks for linting
+├── requirements.txt             # Python dependencies
+├── README.md                    # Landing page
+└── Dockerfile                   # Optional: Containerization for examples
+
+
 ## 🙏 Thank You for Being Here!
 
 Thank you for joining me in this verse of clean, powerful Python coding.  
