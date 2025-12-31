@@ -1,0 +1,9 @@
+{
+  "active_version": "v1",
+  "python_version": "3.12.5",
+  "framework": "statsmodels GLM Gamma",
+  "metrics": {
+    "rmse": 1100,
+    "r2": 0.89
+  }
+}
